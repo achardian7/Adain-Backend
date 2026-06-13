@@ -42,6 +42,8 @@ app.use(
 app.use(helmet());
 app.use(limiter);
 
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 app.use('/api', router);
 
 app.use(notFoundHandler);
