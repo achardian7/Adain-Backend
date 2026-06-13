@@ -19,7 +19,7 @@ const doc = {
     },
     {
       url: `https://adain-backend.vercel.app/api`,
-      description: 'Local server',
+      description: 'Production server',
     },
   ],
   components: {
