@@ -40,7 +40,7 @@ app.use(
     threshold: 1024,
   }),
 );
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(limiter);
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
