@@ -9,7 +9,8 @@ const doc = {
   info: {
     version: 'v0.0.1',
     title: 'Adain API Documentation',
-    description: '',
+    description:
+      'ADAIN API is a comprehensive, production-ready Event Ticket Management API built to deliver a smooth and secure ticket-purchasing experience. Whether you are managing intimate workshops or large-scale festivals, ADAIN provides the backend infrastructure needed to handle high-volume ticket transactions with precision.',
   },
   servers: [
     {
