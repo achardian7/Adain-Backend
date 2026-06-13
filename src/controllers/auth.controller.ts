@@ -16,6 +16,14 @@ export default class AuthController {
     res: Response,
     _next: NextFunction,
   ): Promise<void> {
+    /**
+     #swagger.requestBody = {
+      required: true,
+      schema: {
+        $ref: "#/components/schemas/RegisterRequest"
+      }
+     }
+     */
     const { fullName, username, email, password } =
       registerValidateSchema.parse(req.body);
 
@@ -55,6 +63,14 @@ export default class AuthController {
     res: Response,
     _next: NextFunction,
   ): Promise<void> {
+    /**
+     #swagger.requestBody = {
+      required: true,
+      schema: {
+        $ref: "#/components/schemas/LoginRequest"
+      }
+     }
+     */
     const { identifier, password } = loginValidateSchema.parse(req.body);
 
     const user = await UserModel.findOne({
@@ -92,6 +108,11 @@ export default class AuthController {
     res: Response,
     _next: NextFunction,
   ): Promise<void> {
+    /**
+     #swagger.security = [{
+      "bearerAuth": []
+     }]
+     */
     const user = req.user;
 
     const result = await UserModel.findById(user?.id);

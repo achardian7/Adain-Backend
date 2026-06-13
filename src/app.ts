@@ -6,6 +6,7 @@ import cors, { CorsOptions } from 'cors';
 import helmet from 'helmet';
 
 import config from './config';
+import docs from './docs/route';
 import logger from './lib/logger';
 import limiter from './lib/rate-limiter';
 import errorHandler from './middlewares/error-handler';
@@ -45,6 +46,8 @@ app.use(limiter);
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.use('/api', router);
+
+docs(app);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

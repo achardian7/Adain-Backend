@@ -7,7 +7,8 @@
     "dev": "nodemon src/index.ts",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "docs": "ts-node src/docs/swagger.ts"
   },
   "keywords": [],
   "author": "Muchammad Ardiansyah",
@@ -23,6 +24,8 @@
     "helmet": "^8.2.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.7.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
     "typescript": "^6.0.3",
     "winston": "^3.19.0",
     "zod": "^4.4.3"
@@ -35,6 +38,7 @@
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.9.3",
+    "@types/swagger-ui-express": "^4.1.8",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.4",
     "ts-node": "^10.9.2"
