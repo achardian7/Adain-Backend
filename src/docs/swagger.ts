@@ -37,11 +37,15 @@ const doc = {
       },
 
       RegisterRequest: {
-        name: 'Tony Stark',
+        fullName: 'Tony Stark',
         email: 'example@mail.com',
         username: 'tonystark',
         password: '123123123',
         confirmPassword: '123123123',
+      },
+
+      ActivationRequest: {
+        code: '24b3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx12',
       },
     },
   },

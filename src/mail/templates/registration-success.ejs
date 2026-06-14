@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Datang</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f3f4f6; font-family: Arial, Helvetica, sans-serif;">
+  <table
+    width="100%"
+    cellpadding="0"
+    cellspacing="0"
+    style="background-color: #f3f4f6; padding: 32px 16px;"
+  >
+    <tr>
+      <td align="center">
+        <table
+          width="600"
+          cellpadding="0"
+          cellspacing="0"
+          style="
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          "
+        >
+          <!-- Header -->
+          <tr>
+            <td
+              align="center"
+              style="
+                background-color: #059669;
+                padding: 40px 24px;
+                color: #ffffff;
+              "
+            >
+              <h1
+                style="
+                  margin: 0;
+                  font-size: 28px;
+                  font-weight: bold;
+                "
+              >
+                Selamat Datang!
+              </h1>
+              <p
+                style="
+                  margin: 12px 0 0;
+                  font-size: 16px;
+                  opacity: 0.9;
+                "
+              >
+                Akun Anda berhasil dibuat
+              </p>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding: 32px 24px;">
+              <p
+                style="
+                  margin: 0 0 16px;
+                  font-size: 16px;
+                  color: #374151;
+                  line-height: 1.6;
+                "
+              >
+                Halo <strong><%= name %></strong>,
+              </p>
+
+              <p
+                style="
+                  margin: 0 0 24px;
+                  font-size: 16px;
+                  color: #374151;
+                  line-height: 1.6;
+                "
+              >
+                Terima kasih telah bergabung bersama kami. Kami sangat senang
+                menyambut Anda sebagai bagian dari komunitas kami.
+              </p>
+
+              <!-- User Information -->
+              <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                style="
+                  border: 1px solid #e5e7eb;
+                  border-radius: 8px;
+                  overflow: hidden;
+                  margin-bottom: 24px;
+                "
+              >
+                <tr>
+                  <td
+                    colspan="2"
+                    style="
+                      background-color: #ecfdf5;
+                      padding: 14px 20px;
+                      font-weight: bold;
+                      color: #065f46;
+                    "
+                  >
+                    Informasi Akun
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      font-weight: 600;
+                      color: #374151;
+                      width: 35%;
+                    "
+                  >
+                    Nama
+                  </td>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      color: #6b7280;
+                    "
+                  >
+                    <%= name %>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      font-weight: 600;
+                      color: #374151;
+                    "
+                  >
+                    Email
+                  </td>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      color: #6b7280;
+                    "
+                  >
+                    <%= email %>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      font-weight: 600;
+                      color: #374151;
+                    "
+                  >
+                    Username
+                  </td>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      color: #6b7280;
+                    "
+                  >
+                    <%= username %>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      font-weight: 600;
+                      color: #374151;
+                    "
+                  >
+                    Tanggal Daftar
+                  </td>
+                  <td
+                    style="
+                      padding: 14px 20px;
+                      border-top: 1px solid #e5e7eb;
+                      color: #6b7280;
+                    "
+                  >
+                    <%= registeredAt %>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Activation Button -->
+              <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                style="margin-bottom: 24px;"
+              >
+                <tr>
+                  <td align="center">
+                    <a
+                      href="<%= activationLink %>"
+                      target="_blank"
+                      style="
+                        display: inline-block;
+                        background-color: #059669;
+                        color: #ffffff;
+                        text-decoration: none;
+                        padding: 14px 32px;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        font-weight: 600;
+                      "
+                    >
+                      Aktivasi Akun
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <p
+                style="
+                  margin: 0 0 24px;
+                  font-size: 14px;
+                  color: #6b7280;
+                  line-height: 1.6;
+                "
+              >
+                Jika tombol di atas tidak berfungsi, salin dan buka tautan berikut
+                di browser Anda:
+                <br />
+                <a
+                  href="<%= activationLink %>"
+                  target="_blank"
+                  style="
+                    color: #059669;
+                    word-break: break-all;
+                  "
+                >
+                  <%= activationLink %>
+                </a>
+              </p>
+
+              <p
+                style="
+                  margin: 0;
+                  font-size: 15px;
+                  color: #6b7280;
+                  line-height: 1.6;
+                "
+              >
+                Jika Anda memiliki pertanyaan atau membutuhkan bantuan,
+                jangan ragu untuk menghubungi tim kami.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td
+              align="center"
+              style="
+                padding: 24px;
+                background-color: #f9fafb;
+                border-top: 1px solid #e5e7eb;
+              "
+            >
+              <p
+                style="
+                  margin: 0;
+                  color: #6b7280;
+                  font-size: 14px;
+                "
+              >
+                © <%= new Date().getFullYear() %> Adain. Semua hak dilindungi.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

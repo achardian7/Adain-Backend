@@ -82,6 +82,34 @@
         }
       }
     },
+    "/auth/activation": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivationRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivationRequest"
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/me": {
       "get": {
         "tags": [
@@ -128,7 +156,7 @@
       "RegisterRequest": {
         "type": "object",
         "properties": {
-          "name": {
+          "fullName": {
             "type": "string",
             "example": "Tony Stark"
           },
@@ -151,6 +179,18 @@
         },
         "xml": {
           "name": "RegisterRequest"
+        }
+      },
+      "ActivationRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "24b3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx12"
+          }
+        },
+        "xml": {
+          "name": "ActivationRequest"
         }
       }
     }

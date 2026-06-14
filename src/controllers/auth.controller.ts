@@ -6,6 +6,7 @@ import UserModel from '../models/user.model';
 import { RequestUser } from '../types/auth';
 import encrypt from '../utils/encrypt';
 import {
+  activationValidateSchema,
   loginValidateSchema,
   registerValidateSchema,
 } from '../validators/auth';
@@ -84,6 +85,7 @@ export default class AuthController {
           email: identifier,
         },
       ],
+      isActive: true,
     }).select('+password');
 
     if (!user)
@@ -123,6 +125,43 @@ export default class AuthController {
     res.status(200).json({
       message: 'Success get user profile',
       data: result,
+    });
+  }
+
+  public static async activation(
+    req: RequestUser,
+    res: Response,
+    _next: NextFunction,
+  ): Promise<void> {
+    /**
+     #swagger.tags = ['Auth']
+     #swagger.requestBody = {
+      required: true,
+      schema: {
+        $ref: "#/components/schemas/ActivationRequest"
+      }
+     }
+     */
+
+    const { code } = activationValidateSchema.parse(req.body);
+
+    const user = await UserModel.findOneAndUpdate(
+      {
+        activationCode: code,
+      },
+      {
+        isActive: true,
+      },
+      {
+        new: true,
+      },
+    );
+
+    if (!user) throw new ApiError('Invalid activation code', 400);
+
+    res.status(200).json({
+      message: 'Success activate account',
+      data: user.toJSON(),
     });
   }
 }

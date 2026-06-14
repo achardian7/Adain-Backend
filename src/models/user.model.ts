@@ -1,5 +1,8 @@
 import { Document, Schema, model } from 'mongoose';
 
+import config from '../config';
+import logger from '../lib/logger';
+import { renderMailTemplate, sendMail } from '../mail/mail';
 import encrypt from '../utils/encrypt';
 
 export type UserRole = 'admin' | 'member';
@@ -15,6 +18,7 @@ export interface User extends Document {
   profilePicture: string;
   isActive: boolean;
   activationCode: string;
+  createdAt?: string;
 }
 
 const UserSchema = new Schema<User>(
@@ -67,6 +71,42 @@ const UserSchema = new Schema<User>(
 UserSchema.pre('save', function () {
   if (this.isModified('password')) {
     this.password = encrypt(this.password);
+  }
+
+  if (this.isNew) {
+    this.activationCode = encrypt(this.id.toString());
+  }
+});
+
+UserSchema.post('save', async function (doc, next) {
+  try {
+    const user = doc;
+
+    logger.info(`Send activation account email to ${user.email}`);
+
+    const data = {
+      name: user.fullName,
+      username: user.username,
+      email: user.email,
+      registeredAt: user.createdAt,
+      activationLink: `${config.CLIENT_HOST}/auth/activation?code=${user.activationCode}`,
+    };
+
+    const html = await renderMailTemplate('registration-success.ejs', data);
+
+    const mailId = await sendMail({
+      from: config.EMAIL_SMTP_USER,
+      to: user.email,
+      subject: 'Aktivasi Akun Anda',
+      html,
+    });
+
+    logger.info(`Message sent: ${mailId}`);
+  } catch (error) {
+    logger.error('Error while sending mail:', error);
+    throw error;
+  } finally {
+    next();
   }
 });
 
