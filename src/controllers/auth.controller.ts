@@ -17,6 +17,7 @@ export default class AuthController {
     _next: NextFunction,
   ): Promise<void> {
     /**
+     #swagger.tags = ['Auth']
      #swagger.requestBody = {
       required: true,
       schema: {
@@ -64,6 +65,7 @@ export default class AuthController {
     _next: NextFunction,
   ): Promise<void> {
     /**
+     #swagger.tags = ['Auth']
      #swagger.requestBody = {
       required: true,
       schema: {
@@ -109,6 +111,7 @@ export default class AuthController {
     _next: NextFunction,
   ): Promise<void> {
     /**
+     #swagger.tags = ['Auth']
      #swagger.security = [{
       "bearerAuth": []
      }]
