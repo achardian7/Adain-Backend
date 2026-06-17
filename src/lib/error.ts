@@ -13,7 +13,7 @@ export class ApiError extends Error {
 
   public serializeErrors() {
     return {
-      messaage: this.message,
+      message: this.message,
       statusCode: this.statusCode,
       error: this.error ?? null,
       errors: this.errors ?? [],
